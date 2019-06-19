@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="https://cdn.bootcss.com/tinymce/4.7.13/tinymce.min.js"></script>
+  <script>
+    tinymce.init({
+      selector:'textarea',
+      plugins: 'paste-upload',
+      toolbar: 'paste-upload',
+      pasteUploadConfig: {
+        url: 'http://api.qdqcwy.cn/upload',
+        headers: [
+          {
+            name: 'token',
+            value: '123'
+          }
+        ],
+        diyExtractUrl: true,
+        extractUrlFun: function (json) {
+          return json.msg;
+        }
+      }
+    });
+  </script>
+</head>
+<body>
+  <textarea>Testing paste-upload</textarea>
+</body>
+</html>
